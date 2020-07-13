@@ -2,7 +2,7 @@ import { Controller, Get, Post, Delete, Put, Param, Body, Patch, BadRequestExcep
 import { FruitService } from './fruit.service'
 import { Fruit } from './fruit.model'
 import { FruitServiceI } from './fruitI.service'
-import { arraysEqual, notArraysEqual } from 'src/utils/tsUtils'
+import { arraysEqual, notArraysEqual } from '../utils/tsUtils'
 import { fruits, fruit } from './fruits.seed'
 
 @Controller('fruit')
