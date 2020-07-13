@@ -6,6 +6,8 @@ import { Fruit } from './fruit.model'
 describe('Fruit Controller', () => {
   let controller: FruitController
   let service: FruitService
+
+  // Initialize tests
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [FruitController],
@@ -21,13 +23,14 @@ describe('Fruit Controller', () => {
     expect(controller).toBeDefined()
   })
 
+  // Verify FruitService.getFruits is called by controller   
   it('should return fruits', async function () {
     jest.spyOn(service, 'getFruits').mockReturnValue([])
-
     expect(controller.getFruits()).toBeInstanceOf(Array)
   }
   )
 
+  // Verify FruitService.getFruit is called by controller   
   it('should return a fruit', async function () {
     const fruit: Fruit = {
       name: "Apple",
@@ -39,7 +42,6 @@ describe('Fruit Controller', () => {
     jest.spyOn(service, 'getFruit').
       mockReturnValue(fruit)
 
-    console.log(controller.getFruit("1"))
     expect(controller.getFruit("1")).
       toStrictEqual(fruit)
   }
