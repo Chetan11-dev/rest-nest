@@ -6,7 +6,10 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 #### Interact application live at https://documenter.getpostman.com/view/11453962/T17J9SRn
-![](screenshots/ER.png)
+
+![](screenshots/postman.png)
+
+
 #### This application as a guide to developers to help them understand   
   - Making Nestjs Application with Modular code
   - As a bonus to enhance your arrays knowledge by creating complete in memory crud operations
@@ -36,7 +39,7 @@ I attempted to make the app run straight out of the box so I implemented all the
 
 ####  Although the app is simple enough feautering 1-n reationship between fruit and fruitvarieties but I will guide you through the process to be used when building serious backends
   - Use an ER tool https://www.quickdatabasediagrams.com/ it is going to help you visulize your database  
-  <!-- IMAGES -->
+![](screenshots/ER.png)
 - After that you may use our old friend pen and paper jot down the modules and controllers which would be needed and their interactions.       
 - Follow bootom to top approch go with controllers and map down the request mappings when developing the crud Section you could use the RestInterface available at src/nest-utils/rest.service.ts
 
