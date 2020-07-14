@@ -6,20 +6,38 @@ export function isEmpty(param: any) {
 export function notArraysEqual(a: any[], b: any[]) {
     return !arraysEqual(a, b)
 }
+export function removeItemOnce(arr: any[], value: any) {
+    const index = arr.indexOf(value)
+    if (index > -1) {
+        arr.splice(index, 1)
+    }
 
+    return arr
+}
+
+export function removeItemAll(arr: any[], value: any) {
+    let i = 0
+    while (i < arr.length) {
+        if (arr[i] === value) {
+            arr.splice(i, 1)
+        } else {
+            ++i
+        }
+    }
+    return arr
+}
 
 export function arraysEqual(a: any[], b: any[]) {
     if (a === b) return true
     if (a == null || b == null) return false
     if (a.length !== b.length) return false
 
-    // If you don't care about the order of the elements inside
-    // the array, you should sort both arrays here.
-    // Please note that calling sort on an array will modify that array.
-    // you might want to clone your array first.
+    const ars = [...a].sort()
 
-    for (let i = 0; i < a.length; ++i) {
-        if (a[i] !== b[i]) return false
+    const brs = [...b].sort()
+
+    for (let i = 0; i < ars.length; ++i) {
+        if (ars[i] !== brs[i]) return false
     }
     return true
 }
@@ -33,7 +51,9 @@ export function isListEmpty(param: any[] | Empty) {
 export function isListNotEmpty(param: any[] | Empty) {
     return !isListEmpty(param)
 }
-
+export function randomInteger(max = 10000000) {
+    return Math.floor(Math.random() * (max))
+}
 
 export function isEmptyString(p: string | Empty) {
     if (isEmpty(p) || p!.trim().length === 0) {

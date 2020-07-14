@@ -1,13 +1,22 @@
 import { Fruit } from './fruit.model'
+import { FruitVariety } from '../fruit-variety/fruitvariety.model'
 
-export const fruit: Fruit = {
+// For Comparision 
+export const samplefruit: Fruit = {
     name: "Apple",
     origin: "Spain",
     largestCountry: "India",
     productionInBillions: 1.5,
 }
 
-export const fruits: Fruit[] = [
+// For Comparision 
+export const samplefruitvariety: FruitVariety = {
+    name: "Apple",
+    fruit_id: "-1",
+    taste: "tangy"
+}
+
+export const fruitData: Fruit[] = [
     {
         id: "0",
         name: "Apple",
@@ -33,3 +42,34 @@ export const fruits: Fruit[] = [
         largestCountry: "America",
         productionInBillions: 1.7,
     }]
+
+export const fruitVarietiesData: FruitVariety[] = [
+    {
+        id: "0",
+        name: "Langra",
+        taste: "sweet",
+        fruit_id: "1" // Mango  
+
+    },
+    {
+        id: "1",
+        name: "Dushari",
+        taste: "very sweet",
+        fruit_id: "1"
+
+    },
+
+    {
+        id: "2",
+        name: "Desert Apple",
+        taste: "Sallow",
+        fruit_id: "0" // Apple  
+
+    },
+    {
+        id: "3",
+        name: "Autumn Glory",
+        taste: "very sweet",
+        fruit_id: "0"
+    },
+]

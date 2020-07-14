@@ -7,3 +7,4 @@ describe(' test', () => {
         expect(diffDateToStr(new Date("06/10/2020"), new Date("07/10/2020"))).toStrictEqual('30d ago')
     })
 })
+

@@ -1,74 +1,54 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Injectable, BadRequestException } from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 import { Fruit } from './fruit.model'
-import { FruitServiceI } from './fruitI.service'
+import { RestService } from '../nest-utils/rest.service'
 import { inherits } from 'util'
-import { fruits } from './fruits.seed'
+import { fruitData } from './fruits.seed'
+import { FruitVariety } from '../fruit-variety/fruitvariety.model'
+import { Controller, Get, Post, Delete, Put, Param, Body, Patch, BadRequestException } from '@nestjs/common'
+import { arraysEqual, notArraysEqual, randomInteger, removeItemOnce } from '../utils/tsUtils'
 
 @Injectable()
-export class FruitService implements FruitServiceI {
+export class FruitService implements RestService<Fruit> {
+
     fruits: Fruit[]
 
-    init() {
-        this.fruits = fruits
-    }
-
     constructor() {
-        this.init()
+        this.fruits = fruitData
     }
 
 
-    updateFruit(id: string, f: Fruit): Fruit {
-        // How will we update if we don't have that fruit yet
-        if (!this.weHaveFruit(id)
-        ) {
-            throw new BadRequestException("Hmm We don't have that fruit yet.")
-        }
-
+    update(id: string, f: Fruit): Fruit {
         // Smarly override fruits
-        const updatedfruit = { ... this.fruits[parseInt(id)], ...f }
-        this.fruits[parseInt(id)] = updatedfruit
+        const updatedfruit = { ... this.get(id), ...f }
+        this.add(this.remove(updatedfruit.id))
         return updatedfruit
     }
 
-    private weHaveFruit(id: string) {
-        if (this.findFruit(id)) {
-            return true
-        }
-        else return false
 
+    remove(id: string): Fruit {
+        const f = this.get(id)
+        this.fruits = removeItemOnce(this.fruits, f)
+        return f
     }
 
-    private findFruit(id: string) {
-        return this.fruits.find(currfruit => {
-            if (id === currfruit.id) {
-                return true
-            }
-            else
-                return false
-        })
-    }
 
-    removeFruit(id: string): Fruit {
-        if (!this.weHaveFruit(id)
-        ) {
-            throw new BadRequestException("Hmm We don't have that fruit yet.")
-        }
-        return this.fruits.splice(parseInt(id), 1)[0]
-    }
     // Sweet and Functional fruits I like them
-    addFruit(f: Fruit): Fruit {
-        const fruitExists = this.findFruitByName(f.name)
-
-        if (fruitExists) {
-            throw new BadRequestException("Hmm We already have that fruit we don;t seem to need it.")
-        }
-
-        const updatedFruit = { ...f, id: fruits.length.toString() }
+    add(f: Fruit): Fruit {
+        const updatedFruit = { ...f, id: randomInteger().toString() }
         this.fruits = [...this.fruits, updatedFruit]
         return f
     }
-    private findFruitByName(name: string) {
+
+    get(id: string): Fruit {
+        return this.fruits.find(f => f.id == id)
+    }
+
+    getAll(): Fruit[] {
+        return this.fruits
+    }
+
+    findFruitByName(name: string) {
         return this.fruits.find(currfruit => {
             if (name == currfruit.name) {
                 return true
@@ -78,10 +58,17 @@ export class FruitService implements FruitServiceI {
         })
     }
 
-    getFruit(id: string): Fruit {
-        return this.fruits[parseInt(id)]
-    }
-    getFruits(): Fruit[] {
-        return this.fruits
+    exists(id: string): boolean {
+        const f = this.fruits.find(currfruit => {
+            if (id === currfruit.id) {
+                return true
+            }
+            else
+                return false
+        })
+
+        if (f) {
+            return true
+        } else return false
     }
 }
