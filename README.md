@@ -6,7 +6,7 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 #### Interact application live at https://documenter.getpostman.com/view/11453962/T17J9SRn
-[Mage](screenshots/ER.png)
+![](screenshots/ER.png)
 #### This application as a guide to developers to help them understand   
   - Making Nestjs Application with Modular code
   - As a bonus to enhance your arrays knowledge by creating complete in memory crud operations
