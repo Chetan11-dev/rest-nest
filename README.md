@@ -2,74 +2,51 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
-<a href="https://gitter.im/nestjs/nestjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/nestjs/nestjs.svg" alt="Gitter" /></a>
-<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
-  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# Hello Brother, Do not skip me you will learn from me.
 
-## Description
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+#### Interact application live at https://documenter.getpostman.com/view/11453962/T17J9SRn
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+![](screenshots/postman.png)
 
-## Installation
 
-```bash
-$ npm install
+#### This application as a guide to developers to help them understand   
+  - Making Nestjs Application with Modular code
+  - As a bonus to enhance your arrays knowledge by creating complete in memory crud operations
+I attempted to make the app run straight out of the box so I implemented all the crud operations in memory.
+
+# Helpful advice 
+
+- The src/utils folder is packed up with number of utility files which helps in development.  
+- Also use postman to make requests for application which has the ability to make professional and great docs.
+- Postman has the ability to test the rest points which you could employ if using a microservice architecture.
+- In case you have a unix based enviroment you could add this to your .bashrc (Google it if you seem unfamilar) file with that you only need to issue
+```feature moduleName``` 
+ and a complete module will be available to you. If you are on windows you could use
+```snest g module moduleName && nest g service moduleName --no-spec  && nest g controller moduleName --no-spec```
+```sh
+    feature() {
+
+        if [ "$1" = "cl" ]; then
+            nest g cl "$2" --no-spec
+        else
+            nest g module "$1" --no-spec 
+            nest g service "$1" --no-spec
+            nest g controller "$1" --no-spec
+        fi
+    }
 ```
 
-## Running the app
+####  Although the app is simple enough feautering 1-n reationship between fruit and fruitvarieties but I will guide you through the process to be used when building serious backends
+  - Use an ER tool https://www.quickdatabasediagrams.com/ it is going to help you visulize your database  
+![](screenshots/ER.png)
+- After that you may use our old friend pen and paper jot down the modules and controllers which would be needed and their interactions.       
+- Follow bootom to top approch go with controllers and map down the request mappings when developing the crud Section you could use the RestInterface available at src/nest-utils/rest.service.ts
 
-```bash
-# development
-$ npm run start
 
-# watch mode
+#### Install the dependencies and devDependencies and start the server.
+
+```sh
+$ npm install 
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-  Nest is [MIT licensed](LICENSE).
