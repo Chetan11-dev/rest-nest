@@ -9,6 +9,7 @@ import { FruitVarietyValidationService } from './fruit-variety.validation.servic
 @Module({
   providers: [FruitVarietyService, FruitValidationService, FruitVarietyValidationService],
   controllers: [FruitVarietyController],
-  imports: [FruitModule]
+  exports: [FruitVarietyService],
+  imports: [FruitVarietyService, FruitModule,]
 })
 export class FruitVarietyModule { }

@@ -7,7 +7,7 @@ import { FruitValidationService } from './fruit.validation.service'
 @Module({
   providers: [FruitService, FruitVarietyService, FruitValidationService],
   controllers: [FruitController],
-  exports: [FruitService]
+  exports: [FruitService, FruitValidationService]
 })
 
 export class FruitModule { }

@@ -10,11 +10,14 @@ import { arraysEqual, notArraysEqual, randomInteger, removeItemOnce } from '../u
 
 @Injectable()
 export class FruitService implements RestService<Fruit> {
+    init() {
+        this.fruits = fruitData
+    }
 
     fruits: Fruit[]
 
     constructor() {
-        this.fruits = fruitData
+        this.init()
     }
 
 

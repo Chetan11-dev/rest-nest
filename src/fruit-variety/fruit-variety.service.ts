@@ -6,11 +6,14 @@ import { fruitData, fruitVarietiesData } from '../fruit/fruits.seed'
 
 @Injectable()
 export class FruitVarietyService implements RestService<FruitVariety> {
+    init() {
+        this.fruitVarities = fruitVarietiesData
+    }
 
     public fruitVarities: FruitVariety[]
 
     constructor() {
-        this.fruitVarities = fruitVarietiesData
+        this.init()
     }
 
     get(id: string): FruitVariety {
